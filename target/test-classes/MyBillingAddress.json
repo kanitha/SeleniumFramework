@@ -1,0 +1,10 @@
+{
+	"firstName" : "demo",     
+	"lastName" : "user",
+	"country" : "United States (US)",
+	"billingAddress1" : "Kentucky",
+	"billingCity" : "Kentucky",
+	"state" : "KY",
+	"billingPostCode" : "42002",
+	"email" : "automation@test.com"
+}
