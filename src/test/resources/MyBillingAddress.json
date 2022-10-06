@@ -1,10 +1,10 @@
 {
 	"firstName" : "demo",     
 	"lastName" : "user",
-	"country" : "United States (US)",
-	"billingAddress1" : "Kentucky",
-	"billingCity" : "Kentucky",
-	"state" : "KY",
-	"billingPostCode" : "42002",
+	"country" : "India",
+	"billingAddress1" : "Palladam",
+	"billingCity" : "Palladam",
+	"state" : "Tamil Nadu",
+	"billingPostCode" : "641632",
 	"email" : "automation@test.com"
 }

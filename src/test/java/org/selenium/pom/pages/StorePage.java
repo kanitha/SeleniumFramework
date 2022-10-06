@@ -8,7 +8,7 @@ import org.selenium.pom.base.BasePage;
 public class StorePage extends BasePage {
 	private final By searchField = By.id("woocommerce-product-search-field-0");
 	private final By searchButton = By.cssSelector("button[value='Search']");
-	private final By searchResultsTitle = By.cssSelector(".woocommerce-products-header__title.page-title");
+	private final By searchResultsTitle = By.xpath("//h1[contains(text(),'Search results: ')]");
 	private final By viewCartLink = By.linkText("View cart");
 	
 	public StorePage(WebDriver driver) {
@@ -17,6 +17,7 @@ public class StorePage extends BasePage {
 	
 	public StorePage search(String searchText) {
 		if(isLoaded()) {
+			waitForElementToBeVisible(searchButton);
 			enterTextInSearchField(searchText).clickSearchButton();
 		}
 		return this;
@@ -51,7 +52,7 @@ public class StorePage extends BasePage {
 	}
 	
 	public CartPage clickViewCartButton() {
-		waitForElementToBeVisible(viewCartLink).click();
+		wait.until(ExpectedConditions.elementToBeClickable(viewCartLink)).click();
 		return new CartPage(driver);
 	}
 }

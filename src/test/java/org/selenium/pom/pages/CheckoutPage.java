@@ -1,10 +1,10 @@
 package org.selenium.pom.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.selenium.pom.base.BasePage;
 import org.selenium.pom.objects.BillingAddress;
 import org.selenium.pom.objects.UserLogin;
@@ -23,9 +23,11 @@ public class CheckoutPage extends BasePage {
 	private final By passwordField = By.id("password");
 	private final By loginButton = By.xpath("//button[contains(@class,'login__submit')]");
 	private final By overlayInCheckoutPage = By.cssSelector(".blockUI.blockOverlay");
-	private final By countryDropdownLocator = By.id("billing_country");
-	private final By stateDropDownLocator = By.id("billing_state");
+	//private final By countryDropdownLocator = By.id("billing_country");
+	//private final By stateDropDownLocator = By.id("billing_state");
 	private final By directBanktransferRadioBtn = By.id("payment_method_bacs");
+	private final By alternateCountryDropDownLocator = By.id("select2-billing_country-container");
+	private final By alternateStateDropdownLocator = By.id("select2-billing_state-container");
 
 	public CheckoutPage(WebDriver driver) {
 		super(driver);
@@ -91,14 +93,22 @@ public class CheckoutPage extends BasePage {
 	}
 	
 	private CheckoutPage selectCountry(String countryName) {
-		Select countryDropDown = new Select(driver.findElement(countryDropdownLocator));
-		countryDropDown.selectByVisibleText(countryName);
+		//Select countryDropDown = new Select(driver.findElement(countryDropdownLocator));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(alternateCountryDropDownLocator)).click();
+		WebElement countryDropdownOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[text()='" + countryName + "']")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", countryDropdownOption);
+		countryDropdownOption.click();
 		return this;
 	}
 	
 	private CheckoutPage selectState(String stateName) {
-		Select stateDropDown = new Select(driver.findElement(stateDropDownLocator));
-		stateDropDown.selectByValue(stateName);
+		//Select stateDropDown = new Select(driver.findElement(stateDropDownLocator));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(alternateStateDropdownLocator)).click();
+		WebElement stateDropdownOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[text()='" + stateName + "']")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", stateDropdownOption);
+		stateDropdownOption.click();
 		return this;
 	}
 
