@@ -42,7 +42,7 @@ public class MyFirstTestCase extends BaseTest{
 	}
 	
 	@Test(enabled=true)
-	public void loginAndGuestCheckoutUSingDirectBankTransfer() throws IOException {
+	public void loginAndGuestCheckoutUsingDirectBankTransfer() throws IOException {
 		
 		String searchFor = "Blue";
 		BillingAddress billingAddress = JacksonUtils.deserializeJson("MyBillingAddress.json", BillingAddress.class);
