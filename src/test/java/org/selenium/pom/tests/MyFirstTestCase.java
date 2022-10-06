@@ -41,7 +41,7 @@ public class MyFirstTestCase extends BaseTest{
 		Assert.assertEquals(checkoutPage.getOrderSuccessMessage(), "Thank you. Your order has been received.");
 	}
 	
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void loginAndGuestCheckoutUSingDirectBankTransfer() throws IOException {
 		
 		String searchFor = "Blue";
