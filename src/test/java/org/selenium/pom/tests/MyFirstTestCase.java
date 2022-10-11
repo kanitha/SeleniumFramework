@@ -19,6 +19,7 @@ public class MyFirstTestCase extends BaseTest{
 		BillingAddress billingAddress = JacksonUtils.deserializeJson("MyBillingAddress.json", BillingAddress.class);
 		Products product = new Products(1215, "Products.json");
 		
+		//Using builder pattern and functional methods in POM
 		StorePage storePage = new HomePage(driver).
 								loadPage("/").
 								navigateToStoreUsingMenu().
