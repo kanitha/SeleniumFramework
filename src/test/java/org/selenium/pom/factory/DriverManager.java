@@ -29,7 +29,7 @@ public class DriverManager {
 				driver = new FirefoxDriver();
 				break;
 			default:
-				throw new IllegalStateException("Invalid browser name - " + browserName);
+				throw new IllegalStateException("You've entered an Invalid browser name - " + browserName);
 		}
 
 		driver.manage().window().maximize();
